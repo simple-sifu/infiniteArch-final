@@ -15,13 +15,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
 /* harmony import */ var _Core_Providers_Injection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Core/Providers/Injection */ "./src/Core/Providers/Injection.js");
 /* harmony import */ var _AppPresenter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppPresenter */ "./src/AppPresenter.js");
 /* harmony import */ var _Navigation_NavigationComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Navigation/NavigationComponent */ "./src/Navigation/NavigationComponent.jsx");
 /* harmony import */ var _Home_HomeComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Home/HomeComponent */ "./src/Home/HomeComponent.jsx");
 /* harmony import */ var _Authentication_LoginRegisterComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Authentication/LoginRegisterComponent */ "./src/Authentication/LoginRegisterComponent.jsx");
 /* harmony import */ var _Core_Messages_MessagesRepository__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Core/Messages/MessagesRepository */ "./src/Core/Messages/MessagesRepository.js");
+/* harmony import */ var _Core_Providers_Validation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Core/Providers/Validation */ "./src/Core/Providers/Validation.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -30,8 +37,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var AppComp = (0,mobx_react__WEBPACK_IMPORTED_MODULE_7__.observer)(function (props) {
-  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {}, []);
+
+var AppComp = (0,mobx_react__WEBPACK_IMPORTED_MODULE_8__.observer)(function (props) {
+  var _useValidation = (0,_Core_Providers_Validation__WEBPACK_IMPORTED_MODULE_7__.useValidation)(),
+    _useValidation2 = _slicedToArray(_useValidation, 2),
+    updateClientValidationMessages = _useValidation2[1];
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    props.presenter.load(onRouteChange);
+  }, []);
+  var onRouteChange = function onRouteChange() {
+    updateClientValidationMessages([]);
+  };
   var renderedComponents = [{
     id: 'homeLink',
     component: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Home_HomeComponent__WEBPACK_IMPORTED_MODULE_4__.HomeComponent, {
@@ -292,16 +308,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
+/* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
 /* harmony import */ var _Core_Providers_Injection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Core/Providers/Injection */ "./src/Core/Providers/Injection.js");
 /* harmony import */ var _LoginRegisterPresenter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoginRegisterPresenter */ "./src/Authentication/LoginRegisterPresenter.js");
 /* harmony import */ var _Core_Messages_MessagesComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Core/Messages/MessagesComponent */ "./src/Core/Messages/MessagesComponent.js");
+/* harmony import */ var _Core_Providers_Validation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Core/Providers/Validation */ "./src/Core/Providers/Validation.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
-var LoginRegisterComp = (0,mobx_react__WEBPACK_IMPORTED_MODULE_4__.observer)(function (props) {
+
+var LoginRegisterComp = (0,mobx_react__WEBPACK_IMPORTED_MODULE_5__.observer)(function (props) {
+  var _useValidation = (0,_Core_Providers_Validation__WEBPACK_IMPORTED_MODULE_4__.useValidation)(),
+    _useValidation2 = _slicedToArray(_useValidation, 2),
+    updateClientValidationMessages = _useValidation2[1];
+  var formValid = function formValid() {
+    var clientValidationMessages = [];
+    if (props.presenter.email === '') clientValidationMessages.push('No email');
+    if (props.presenter.password === '') clientValidationMessages.push('No password');
+    updateClientValidationMessages(clientValidationMessages);
+    return clientValidationMessages.length === 0;
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "login-register"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
